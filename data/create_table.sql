@@ -13,3 +13,6 @@ CREATE TABLE ParkingLot
     space_no     int,
     coord        POINT NOT NULL SRID 4326
 )
+
+-- 인덱스 추가
+CREATE SPATIAL INDEX geo_index ON ParkingLot(coord);
