@@ -7,12 +7,12 @@
 
 <table align="center">
   <tr>
-    <td align="center" width="160px"><img src="./images/Leonardo.png" width="100" height="100" style="object-fit: contain;"></td>
-    <td align="center" width="160px"><img src="./images/Bluebear.png" width="100" height="100" style="object-fit: contain;"></td>
-    <td align="center" width="160px"><img src="./images/Katie.png" width="100" height="100" style="object-fit: contain;"></td>
-    <td align="center" width="160px"><img src="./images/Tom Nook.png" width="100" height="100" style="object-fit: contain;"></td>
-    <td align="center" width="160px"><img src="./images/Dotty.png" width="100" height="100" style="object-fit: contain;"></td>
-    <td align="center" width="160px"><img src="./images/lsabelle.png" width="100" height="100" style="object-fit: contain;"></td>
+    <td align="center" width="160px"><img src="./images/Leonardo.png" width="100" style="object-fit: contain; aspect-ratio: 1/1;"></td>
+    <td align="center" width="160px"><img src="./images/Bluebear.png" width="100" style="object-fit: contain; aspect-ratio: 1/1;"></td>
+    <td align="center" width="160px"><img src="./images/Katie.png" width="100" style="object-fit: contain; aspect-ratio: 1/1;"></td>
+    <td align="center" width="160px"><img src="./images/Tom Nook.png" width="100" style="object-fit: contain; aspect-ratio: 1/1;"></td>
+    <td align="center" width="160px"><img src="./images/Dotty.png" width="100" style="object-fit: contain; aspect-ratio: 1/1;"></td>
+    <td align="center" width="160px"><img src="./images/lsabelle.png" width="100" style="object-fit: contain; aspect-ratio: 1/1;"></td>
   </tr>
   <tr>
     <td align="center"><b>이창우</b></td>
