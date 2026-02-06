@@ -4,7 +4,6 @@
 ## 👋🏻 팀 소개
 ### 📌 **Team 차곡차곡**
 
-
 <table align="center">
   <tr>
     <td align="center" width="160px"><img src="./images/Leonardo.png" width="100" style="object-fit: contain; aspect-ratio: 1/1;"></td>
@@ -52,7 +51,8 @@
 2026.02.05 ~ 2026.02.06
 
 ### 📌 프로젝트 개요
-공공데이터 기반의 MySQL 공간 쿼리를 활용해 목적지 반경 내 시설을 정밀하게 필터링하며, 가격 변동이 잦은 주유소 정보는 실시간 API로 정확성을 높였습니다. 
+공공데이터 기반의 MySQL 공간 쿼리를 활용해 목적지 반경 내 시설을 정밀하게 필터링하며, 
+가격 변동이 잦은 주유소 정보는 실시간 API로 정확성을 높였습니다. 
 지도 시각화와 카드 UI를 통해 복잡한 검색 과정 없이 직관적인 모빌리티 환경을 제공합니다.
 
 ### 📌 프로젝트 내용
@@ -103,7 +103,7 @@ project-root/
 - **Backend**: ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 - **Frontend**: ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white) 
 - **Database**: ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-- **Data**: ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
+- **Data:** ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)  
 - **Infra**: ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 
