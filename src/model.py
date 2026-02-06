@@ -90,27 +90,27 @@ class GasStation:
         self.__lng = lng
         self.__distance = distance
 
-        @property
-        def reg_id(self):
-            return self.__reg_id
-        @property
-        def station_name(self):
-            return self.__station_name
-        @property
-        def price(self):
-            return self.__price
-        @property
-        def brand_name(self):
-            return self.__brand_name
-        @property
-        def lat(self):
-            return self.__lat
-        @property
-        def lng(self):
-            return self.__lng
-        @property
-        def distance(self):
-            return self.__distance
+    @property
+    def reg_id(self):
+        return self.__reg_id
+    @property
+    def station_name(self):
+        return self.__station_name
+    @property
+    def price(self):
+        return self.__price
+    @property
+    def brand_name(self):
+        return self.__brand_name
+    @property
+    def lat(self):
+        return self.__lat
+    @property
+    def lng(self):
+        return self.__lng
+    @property
+    def distance(self):
+        return self.__distance
 
     def __repr__(self):
         return f'GasStation(reg_id = "{self.__reg_id}", station_name = "{self.__station_name}", price = "{self.__price}", brand_name = "{self.__brand_name}", lat = "{self.__lat}", lng = "{self.__lng}", distance = {self.__distance})'
