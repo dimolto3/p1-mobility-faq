@@ -17,8 +17,8 @@ if 'oil_results' not in st.session_state:
 if 'map_center' not in st.session_state:
     st.session_state['map_center'] = [37.5665, 126.9780]  # 서울 시청 기준
 
-if "list_result_current_page" not in st.session_state: #리스트에서 현재 탐색중인 페이지
-    st.session_state.list_result_current_page = 1
+if "current_page" not in st.session_state: #리스트에서 현재 탐색중인 페이지
+    st.session_state.current_page = 1
 
 
 
@@ -37,11 +37,11 @@ with left_col:
         total_items = len(stations)
         total_pages = math.ceil(total_items / ITEMS_PER_PAGE)
 
-        current_group = (st.session_state.list_result_current_page - 1) // 5
+        current_group = (st.session_state.current_page - 1) // 5
         start_page = current_group * 5 + 1
         end_page = min(start_page + 4, total_pages)
 
-        start_idx = (st.session_state.list_result_current_page - 1) * ITEMS_PER_PAGE
+        start_idx = (st.session_state.current_page - 1) * ITEMS_PER_PAGE
         end_idx = start_idx + ITEMS_PER_PAGE
         page_data = stations[start_idx:end_idx]
         for s in page_data:
@@ -60,12 +60,12 @@ with left_col:
         with page_cols[0]:
             if current_group > 0:
                 if st.button("◀", key="prev_group"):
-                    st.session_state.list_result_current_page = start_page - 1
+                    st.session_state.current_page = start_page - 1
                     st.rerun()
 
         for i, p in enumerate(range(start_page, end_page + 1)):
             with page_cols[i + 1]:
-                btn_type = "primary" if st.session_state.list_result_current_page == p else "secondary"
+                btn_type = "primary" if st.session_state.current_page == p else "secondary"
                 if st.button(str(p), key=f"p_{p}", type=btn_type, use_container_width=True):
                     st.session_state.current_page = p
                     st.rerun()
@@ -73,7 +73,7 @@ with left_col:
         with page_cols[6]:
             if end_page < total_pages:
                 if st.button("▶", key="next_group"):
-                    st.session_state.list_result_current_page = end_page + 1
+                    st.session_state.current_page = end_page + 1
                     st.rerun()
     else:
         st.info("오른쪽 검색창에서 동네 이름이나 주소를 검색해 보세요!")
