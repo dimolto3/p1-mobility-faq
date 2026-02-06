@@ -5,6 +5,7 @@ from streamlit_folium import st_folium
 import folium
 import math
 import urllib
+from folium.plugins import MarkerCluster
 
 from src.db_crud import get_near_parking_data
 from src.utils import find_address_and_point
@@ -16,43 +17,7 @@ st.set_page_config(layout="wide", page_title="Parking Mate")
 # 불필요한 경고 출력 무시
 warnings.filterwarnings('ignore', category=UserWarning)
 # 글자 깨짐 등 해결
-st.markdown("""
-    <style>
-    /* 1. 버튼 및 컬럼 디자인 (기존 유지) */
-    div.stButton > button p {
-        white-space: nowrap !important;
-        font-size: 14px !important;
-    }
-    div.stButton > button {
-        min-width: 35px !important; 
-        width: 100% !important;
-        padding: 0px !important;
-        margin: 0px 2px !important; 
-    }
-    [data-testid="column"] {
-        padding-left: 1px !important;
-        padding-right: 1px !important;
-    }
-
-    /* 2. 지도를 감싸는 가장 바깥쪽 리테이너 타겟팅 */
-    [data-testid="stVerticalBlock"] > div:has(iframe) {
-        margin-top: -2px !important; /
-    }
-
-    /* 3. 지도 자체 프레임 조절 */
-    iframe {
-        border-radius: 15px !important;
-        border: 1px solid #ddd !important;
-        margin-top: -5px !important; /* 내부에서 한 번 더 올림 */
-    }
-
-    /* 4. st_folium 컨테이너 내부 여백 제거 */
-    .element-container:has(iframe) {
-        margin-bottom: -10px !important;
-    }
-
-    </style>
-""", unsafe_allow_html=True)
+st.markdown('', unsafe_allow_html=True)
 
 # 2. 세션 상태 초기화 (데이터 바구니 생성)
 if 'search_results' not in st.session_state:
@@ -101,18 +66,18 @@ with right_col:
 
     # 지도 표시 로직
     if st.session_state.search_results and len(st.session_state.search_results) > 0:
-        # 데이터가 있을 때 첫 번째 검색 결과 위치로 이동
-        center_lat = st.session_state.search_results[0].lat
-        center_lng = st.session_state.search_results[0].lng
+        # 사용자가 입력한 장소로 지도 중심 고정
+        center_lat = st.session_state.destination.lat
+        center_lng = st.session_state.destination.lng
         zoom_level = 14
     else:
         center_lat, center_lng = 37.5665, 126.9780  # 서울 기본 위치
         zoom_level = 12
 
     m = folium.Map(location=[center_lat, center_lng], zoom_start=zoom_level)
-    # 목적지 마커 추가
+    cluster = MarkerCluster().add_to(m)
 
-    # 주차장 마커 추가
+    # 목적지 마커 추가
     if st.session_state.destination:
         dest = st.session_state.destination
         folium.Marker(
@@ -161,7 +126,7 @@ with right_col:
             location=[parking_lot.lat, parking_lot.lng],
             popup=folium.Popup(popup_html, max_width=300),
             icon=folium.Icon(color='blue', icon='info-sign')
-        ).add_to(m)
+        ).add_to(cluster)
 
     st_folium(m, width="100%", height=600, key="main_map", returned_objects=[])
 
